@@ -8,354 +8,442 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <!-- Custom CSS -->
+    <style>
+    body { font-family: 'Poppins', Arial, sans-serif; background: #111; color: #fff; margin: 0; }
+    .navbar { display: flex; align-items: center; justify-content: space-between; background: #000; padding: 1rem 2rem; box-shadow: 0 2px 8px rgba(0,255,255,0.04);}
+    .logo { font-size: 1.5rem; font-weight: 600; color: #00ffff; display: flex; align-items: center; gap: 0.5rem;}
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0;}
+    .nav-links a { text-decoration: none; color: #fff; font-weight: 500; transition: color 0.2s;}
+    .nav-links a.active, .nav-links a:hover { color: #00ffff;}
+    .auth-buttons { display: flex; gap: 0.5rem; align-items: center;}
+    .btn, .btn-outline, .btn-primary { border: none; padding: 0.5rem 1.2rem; border-radius: 4px; font-weight: 500; cursor: pointer;}
+    .btn-primary { background: #00ffff; color: #000;}
+    .btn-outline { background: #000; color: #00ffff; border: 1px solid #00ffff;}
+    .btn-ai { background: #111; color: #fff; border: 1px solid #00ffff; display: flex; align-items: center; gap: 0.5rem;}
+    .btn-settings { background: none; border: none; color: #00ffff; font-size: 1.2rem; cursor: pointer;}
+    .hamburger { display: none; flex-direction: column; gap: 4px; background: none; border: none; cursor: pointer;}
+    .hamburger span { width: 24px; height: 3px; background: #00ffff; border-radius: 2px;}
+    .hero { background: linear-gradient(90deg, #222 60%, #111 100%); padding: 3rem 0;}
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem;}
+    .hero-content h1 { font-size: 2.5rem; margin-bottom: 1rem; color: #00ffff;}
+    .hero-buttons { margin-top: 2rem; display: flex; gap: 1rem;}
+    .hero-image img { max-width: 400px; width: 100%;}
+    .about-grid, .services-grid, .network-stats, .contact-grid, .footer-grid { display: grid; gap: 2rem;}
+    .about-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 2rem;}
+    .about-card { background: #181818; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,255,255,0.03);}
+    .about-card .icon { font-size: 2rem; color: #00ffff; margin-bottom: 1rem;}
+    .services-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-top: 2rem;}
+    .service-card { background: #181818; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,255,255,0.03);}
+    .service-card img { width: 60px; margin-bottom: 1rem;}
+    .learn-more { color: #00ffff; text-decoration: none; font-weight: 500;}
+    .network-stats { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin-top: 2rem;}
+    .stat-card { background: #181818; border-radius: 8px; padding: 1.2rem; text-align: center; box-shadow: 0 2px 8px rgba(0,255,255,0.03);}
+    .stat-card h3 { color: #00ffff; font-size: 2rem; margin: 0;}
+    .map-container img { width: 100%; max-width: 600px; margin: 2rem auto 0; display: block;}
+    .testimonial-slider { display: flex; gap: 2rem; margin-top: 2rem;}
+    .testimonial-card { background: #181818; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,255,255,0.03); flex: 1;}
+    .quote { color: #00ffff; font-style: italic;}
+    .author { display: flex; align-items: center; gap: 1rem; margin-top: 1rem;}
+    .author img { width: 48px; height: 48px; border-radius: 50%;}
+    .contact-grid { grid-template-columns: 1fr 1fr; margin-top: 2rem;}
+    .contact-form { background: #181818; border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,255,255,0.03);}
+    .form-group { margin-bottom: 1rem;}
+    .form-group label { display: block; margin-bottom: 0.3rem; font-weight: 500; color: #00ffff;}
+    .form-group input, .form-group textarea { width: 100%; padding: 0.6rem; border: 1px solid #00ffff; border-radius: 4px; background: #111; color: #fff;}
+    .contact-info .info-card { background: #181818; border-radius: 8px; padding: 1.2rem; margin-bottom: 1rem; box-shadow: 0 2px 8px rgba(0,255,255,0.03);}
+    .info-card i { color: #00ffff; margin-right: 0.5rem;}
+    .doctor-profile { background: #222; padding: 2rem 0;}
+    .doctor-card { display: flex; gap: 2rem; align-items: center; background: #181818; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,255,255,0.03); padding: 2rem;}
+    .doctor-photo img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover;}
+    .doctor-info h2 { margin: 0 0 0.5rem 0; color: #00ffff;}
+    .doctor-contact { margin-top: 1rem; display: flex; gap: 2rem; color: #00ffff;}
+    .footer-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-bottom: 2rem;}
+    .footer-logo { color: #00ffff; font-size: 1.2rem;}
+    .footer-links ul { list-style: none; padding: 0; margin: 0;}
+    .footer-links a { color: #fff; text-decoration: none;}
+    .footer-links a:hover { color: #00ffff;}
+    .footer-newsletter input { padding: 0.5rem; border: 1px solid #00ffff; border-radius: 4px; width: 70%; background: #111; color: #fff;}
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #00ffff; padding: 1rem 0; font-size: 0.95rem;}
+    .social-links a { color: #00ffff; margin-left: 1rem; font-size: 1.2rem;}
+    /* Responsive */
+    @media (max-width: 900px) {
+        .about-grid, .services-grid, .network-stats, .footer-grid, .contact-grid { grid-template-columns: 1fr; }
+        .doctor-card { flex-direction: column; align-items: flex-start;}
+        .testimonial-slider { flex-direction: column;}
+    }
+    @media (max-width: 700px) {
+        .navbar { flex-wrap: wrap; padding: 1rem;}
+        .nav-links { display: none; flex-direction: column; background: #000; position: absolute; top: 60px; left: 0; width: 100%; box-shadow: 0 2px 8px rgba(0,255,255,0.06);}
+        .nav-links.open { display: flex;}
+        .hamburger { display: flex;}
+    }
+    /* Modal styles */
+    .settings-modal[hidden], .ai-assistant[hidden] { display: none !important; }
+    .settings-modal, .ai-assistant { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1000; display: flex; align-items: center; justify-content: center;}
+    .settings-content, .ai-container { background: #181818; border-radius: 8px; box-shadow: 0 4px 24px rgba(0,255,255,0.12); padding: 2rem; min-width: 320px; position: relative;}
+    .settings-header, .ai-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;}
+    .settings-close, .ai-close { background: none; border: none; font-size: 1.2rem; cursor: pointer; color: #00ffff;}
+    .settings-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,255,255,0.1); z-index: -1;}
+    .language-switcher-inside { display: flex; gap: 1rem;}
+    .lang-btn { border: 1px solid #00ffff; background: #111; color: #00ffff; border-radius: 4px; padding: 0.4rem 1rem; cursor: pointer;}
+    .lang-btn.active { background: #00ffff; color: #000;}
+    .ai-messages { max-height: 200px; overflow-y: auto; margin-bottom: 1rem;}
+    .ai-message { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1rem;}
+    .ai-message .sentry-logo { width: 32px; height: 32px;}
+    .ai-input { display: flex; gap: 0.5rem;}
+    .ai-input input { flex: 1; padding: 0.5rem; border: 1px solid #00ffff; border-radius: 4px; background: #111; color: #fff;}
+    .ai-send { background: #00ffff; color: #000; border: none; border-radius: 4px; padding: 0 1rem; cursor: pointer;}
+</style>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <i class="fas fa-heartbeat"></i>
-                <span>RuralConnect</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#network">Network</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="auth-buttons">
-                <button class="btn btn-ai" id="aiAssistantBtn">
-                    <img src="images/sentry-logo.svg" alt="Sentry" class="sentry-logo">
-                    <span>AI Assistant</span>
-                </button>
-                <button class="btn btn-outline">Login</button>
-                <button class="btn btn-primary">Register</button>
-                <button class="btn-settings" id="settingsBtn" title="Settings">
-                    <i class="fas fa-cog"></i>
-                </button>
-            </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Settings Modal -->
-    <div class="settings-modal" id="settingsModal">
-        <div class="settings-content">
-            <div class="settings-header">
-                <span>Settings</span>
-                <button class="settings-close" id="settingsClose"><i class="fas fa-times"></i></button>
-            </div>
-            <div class="settings-section">
-                <h3>Language</h3>
-                <div class="language-switcher-inside">
-                    <button class="lang-btn active" data-lang="en">English</button>
-                    <button class="lang-btn" data-lang="hi">हिन्दी</button>
-                </div>
-            </div>
-            <!-- You can add more settings sections here -->
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-heart-pulse"></i>
+            RuralConnect
         </div>
-        <div class="settings-overlay" id="settingsOverlay"></div>
-    </div>
+        <ul class="nav-links">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#network">Network</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="auth-buttons">
+            <button class="btn btn-outline" id="aiAssistantBtn"><i class="fa-solid fa-robot"></i> AI Assistant</button>
+            <button class="btn btn-primary">Login</button>
+            <button class="btn btn-outline">Register</button>
+            <button class="btn-settings" id="settingsBtn" aria-label="Settings"><i class="fa-solid fa-gear"></i></button>
+        </div>
+        <button class="hamburger" aria-label="Menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
 
-    <div class="ai-assistant" id="aiAssistant">
-        <div class="ai-container">
-            <div class="ai-header">
-                <img src="images/sentry-logo.svg" alt="Sentry" class="sentry-logo">
-                <span>AI Assistant</span>
-                <button class="ai-close"><i class="fas fa-times"></i></button>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container" style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem;">
+            <div class="hero-content" style="flex: 1;">
+                <h1>Emergency Network for Rural Healthcare</h1>
+                <p>Connecting rural communities with emergency medical services, doctors, and resources—instantly and reliably.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary">Get Started</a>
+                    <a href="#about" class="btn btn-outline">Learn More</a>
+                </div>
             </div>
-            <div class="ai-content">
-                <div class="ai-messages">
-                    <div class="ai-message">
-                        <img src="images/sentry-logo.svg" alt="Sentry" class="sentry-logo">
-                        <div class="message-content">
-                            <p>Hello! I'm your AI healthcare assistant. How can I help you today?</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="ai-input">
-                    <input type="text" placeholder="Type your question here...">
-                    <button class="ai-send"><i class="fas fa-paper-plane"></i></button>
-                </div>
+            <div class="hero-image" style="flex: 1; min-width: 50%;">
+                <img src="images/bag.jpg" alt="Healthcare Network" style="width: 100%; max-width: 600px;">
             </div>
         </div>
-    </div>
+    </section>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Connecting Rural Clinics to Urban Hospitals</h1>
-                    <p>Bridging the healthcare gap with real-time emergency response and telemedicine solutions</p>
-                    <div class="hero-buttons">
-                        <button class="btn btn-primary">Get Started</button>
-                        <button class="btn btn-outline">Learn More</button>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <img src="images/hero-image.svg" alt="Emergency Network Illustration">
-                </div>
+    <!-- About Section -->
+    <section id="about" class="container" style="margin-top: 3rem;">
+        <h2>About RuralConnect</h2>
+        <div class="about-grid">
+            <div class="about-card">
+                <div class="icon"><i class="fa-solid fa-network-wired"></i></div>
+                <h3>Connected Network</h3>
+                <p>Bridging the gap between rural patients and healthcare professionals through a robust digital network.</p>
             </div>
-        </section>
-
-        <section id="about" class="about">
-            <div class="container">
-                <div class="section-header">
-                    <h2>About RuralConnect</h2>
-                    <p>Our mission is to save lives by connecting rural healthcare providers with urban specialists</p>
-                </div>
-                <div class="about-grid">
-                    <div class="about-card">
-                        <div class="icon">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <h3>Fast Response</h3>
-                        <p>Emergency alerts reach urban hospitals within seconds, enabling immediate response</p>
-                    </div>
-                    <div class="about-card">
-                        <div class="icon">
-                            <i class="fas fa-video"></i>
-                        </div>
-                        <h3>Telemedicine</h3>
-                        <p>Real-time video consultations with specialists for critical cases</p>
-                    </div>
-                    <div class="about-card">
-                        <div class="icon">
-                            <i class="fas fa-ambulance"></i>
-                        </div>
-                        <h3>Coordinated Transport</h3>
-                        <p>Efficient ambulance dispatch and patient transfer coordination</p>
-                    </div>
-                    <div class="about-card">
-                        <div class="icon">
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <h3>Patient Records</h3>
-                        <p>Secure sharing of patient information between facilities</p>
-                    </div>
-                </div>
+            <div class="about-card">
+                <div class="icon"><i class="fa-solid fa-truck-medical"></i></div>
+                <h3>Emergency Response</h3>
+                <p>Rapid coordination with ambulances and local clinics for timely emergency care.</p>
             </div>
-        </section>
-
-        <section id="services" class="services">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Our Services</h2>
-                    <p>Comprehensive solutions for rural healthcare providers</p>
-                </div>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <img src="images/emergency-alert.svg" alt="Emergency Alert System">
-                        <h3>Emergency Alert System</h3>
-                        <p>Instant notification system connecting rural clinics to urban emergency departments</p>
-                        <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                    <div class="service-card">
-                        <img src="images/telemedicine.svg" alt="Telemedicine Platform">
-                        <h3>Telemedicine Platform</h3>
-                        <p>Secure video consultations with specialists for diagnosis and treatment guidance</p>
-                        <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                    <div class="service-card">
-                        <img src="images/transport.svg" alt="Transport Coordination">
-                        <h3>Transport Coordination</h3>
-                        <p>Efficient ambulance dispatch and patient transfer management</p>
-                        <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
+            <div class="about-card">
+                <div class="icon"><i class="fa-solid fa-user-doctor"></i></div>
+                <h3>Expert Doctors</h3>
+                <p>Access to a wide network of certified doctors and specialists for consultations and guidance.</p>
             </div>
-        </section>
-
-        <section id="network" class="network">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Our Network</h2>
-                    <p>Connecting healthcare providers across the country</p>
-                </div>
-                <div class="network-stats">
-                    <div class="stat-card">
-                        <h3>150+</h3>
-                        <p>Rural Clinics</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>45+</h3>
-                        <p>Urban Hospitals</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>500+</h3>
-                        <p>Healthcare Providers</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>10,000+</h3>
-                        <p>Lives Saved</p>
-                    </div>
-                </div>
-                <div class="map-container">
-                    <img src="images/network-map.svg" alt="Network Coverage Map">
-                </div>
+            <div class="about-card">
+                <div class="icon"><i class="fa-solid fa-language"></i></div>
+                <h3>Multi-language Support</h3>
+                <p>Communicate in your preferred language for better understanding and comfort.</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="testimonials" class="testimonials">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Success Stories</h2>
-                    <p>Hear from healthcare providers using our network</p>
-                </div>
-                <div class="testimonial-slider">
-                    <div class="testimonial-card">
-                        <div class="quote">
-                            <i class="fas fa-quote-left"></i>
-                            <p>RuralConnect has transformed our ability to respond to emergencies. We can now get specialist consultation within minutes, not hours.</p>
-                        </div>
-                        <div class="author">
-                            <img src="images/testimonial-1.jpg" alt="Dr. Sarah Johnson">
-                            <div class="author-info">
-                                <h4>Dr. Sarah Johnson</h4>
-                                <p>Rural Health Clinic, Montana</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="quote">
-                            <i class="fas fa-quote-left"></i>
-                            <p>The telemedicine platform has been a game-changer for our emergency department. We can now provide expert care to rural patients without delay.</p>
-                        </div>
-                        <div class="author">
-                            <img src="images/testimonial-2.jpg" alt="Dr. Michael Chen">
-                            <div class="author-info">
-                                <h4>Dr. Michael Chen</h4>
-                                <p>Urban Medical Center, Chicago</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- Network Stats Section -->
+    <section id="network" class="container" style="margin-top: 3rem;">
+        <h2>Our Network</h2>
+        <div class="network-stats">
+            <div class="stat-card">
+                <h3>120+</h3>
+                <p>Partnered Hospitals</p>
             </div>
-        </section>
-
-        <section id="contact" class="contact">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Contact Us</h2>
-                    <p>Get in touch to learn how RuralConnect can help your facility</p>
-                </div>
-                <div class="contact-grid">
-                    <div class="contact-form">
-                        <form>
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" placeholder="Your Name">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" placeholder="Your Email">
-                            </div>
-                            <div class="form-group">
-                                <label for="facility">Healthcare Facility</label>
-                                <input type="text" id="facility" placeholder="Your Facility Name">
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" placeholder="How can we help you?"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Send Message</button>
-                        </form>
-                    </div>
-                    <div class="contact-info">
-                        <div class="info-card">
-                            <i class="fas fa-phone"></i>
-                            <h3>Emergency Hotline</h3>
-                            <p>1-800-RURAL-HELP</p>
-                        </div>
-                        <div class="info-card">
-                            <i class="fas fa-envelope"></i>
-                            <h3>Email</h3>
-                            <p>support@ruralconnect.org</p>
-                        </div>
-                        <div class="info-card">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <h3>Headquarters</h3>
-                            <p>123 Healthcare Ave, Suite 500<br>Washington, DC 20001</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="stat-card">
+                <h3>350+</h3>
+                <p>Doctors Onboard</p>
             </div>
-        </section>
-    </main>
+            <div class="stat-card">
+                <h3>80+</h3>
+                <p>Ambulances Connected</p>
+            </div>
+            <div class="stat-card">
+                <h3>50,000+</h3>
+                <p>Patients Served</p>
+            </div>
+        </div>
+        <div class="map-container">
+            <img src="images/network-map.svg" alt="Network Map">
+        </div>
+    </section>
 
-    <!-- Doctor Profile Section -->
+    <!-- Services Section -->
+    <section id="services" class="container" style="margin-top: 3rem;">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="images/service-ambulance.svg" alt="Ambulance Service">
+                <h3>Ambulance Booking</h3>
+                <p>Book the nearest available ambulance in seconds for emergencies.</p>
+                <a href="#" class="learn-more">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <img src="images/service-doctor.svg" alt="Doctor Consultation">
+                <h3>Doctor Consultation</h3>
+                <p>Connect with doctors for instant advice and telemedicine support.</p>
+                <a href="#" class="learn-more">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <img src="images/service-alert.svg" alt="Emergency Alerts">
+                <h3>Emergency Alerts</h3>
+                <p>Receive real-time alerts and notifications for local emergencies.</p>
+                <a href="#" class="learn-more">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card">
+                <img src="images/service-support.svg" alt="Support">
+                <h3>24/7 Support</h3>
+                <p>Our team is available round the clock to assist you in any situation.</p>
+                <a href="#" class="learn-more">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctor Profile Highlight -->
     <section class="doctor-profile">
         <div class="container">
             <div class="doctor-card">
                 <div class="doctor-photo">
-                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Dr. Arjun Mehra">
+                    <img src="images/doctor-profile.jpg" alt="Dr. Priya Sharma">
                 </div>
                 <div class="doctor-info">
-                    <h2>Dr. Arjun Mehra</h2>
-                    <h4>Chief Medical Officer, RuralConnect</h4>
-                    <p class="doctor-bio">Dr. Mehra is a leading expert in rural healthcare and telemedicine, with over 15 years of experience connecting remote clinics to urban hospitals. He is passionate about improving access to quality care for underserved communities.</p>
+                    <h2>Dr. Priya Sharma</h2>
+                    <p>Chief Medical Officer, RuralConnect</p>
+                    <p>“Our mission is to ensure that no life is lost due to lack of timely medical help in rural areas.”</p>
                     <div class="doctor-contact">
-                        <span><i class="fas fa-envelope"></i> arjun.mehra@ruralconnect.org</span>
-                        <span><i class="fas fa-phone"></i> +91 98765 43210</span>
+                        <span><i class="fa-solid fa-envelope"></i> priya.sharma@ruralconnect.org</span>
+                        <span><i class="fa-solid fa-phone"></i> +91 98765 43210</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-logo">
-                    <i class="fas fa-heartbeat"></i>
-                    <span>RuralConnect</span>
-                    <p>Connecting rural healthcare to urban expertise</p>
-                </div>
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#network">Network</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="#">Documentation</a></li>
-                        <li><a href="#">Training</a></li>
-                        <li><a href="#">Support</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                    </ul>
-                </div>
-                <div class="footer-newsletter">
-                    <h3>Stay Updated</h3>
-                    <p>Subscribe to our newsletter for the latest updates</p>
-                    <form>
-                        <input type="email" placeholder="Your Email">
-                        <button type="submit" class="btn btn-primary">Subscribe</button>
-                    </form>
+    <!-- Testimonials Section -->
+    <section class="container" style="margin-top: 3rem;">
+        <h2>What Our Users Say</h2>
+        <div class="testimonial-slider">
+            <div class="testimonial-card">
+                <div class="quote">“RuralConnect helped save my father’s life by connecting us to an ambulance and a doctor within minutes.”</div>
+                <div class="author">
+                    <img src="images/user1.jpg" alt="User 1">
+                    <div>
+                        <strong>Sunita Devi</strong><br>
+                        Bihar, India
+                    </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 RuralConnect. All rights reserved.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+            <div class="testimonial-card">
+                <div class="quote">“The AI assistant answered my questions in Hindi and guided me step by step. Very helpful!”</div>
+                <div class="author">
+                    <img src="images/user2.jpg" alt="User 2">
+                    <div>
+                        <strong>Ramesh Kumar</strong><br>
+                        Uttar Pradesh, India
+                    </div>
                 </div>
             </div>
         </div>
-    </footer>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container" style="margin-top: 3rem;">
+        <h2>Contact Us</h2>
+        <div class="contact-grid">
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input id="name" name="name" type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Send Message</button>
+                </form>
+            </div>
+            <div class="contact-info">
+                <div class="info-card">
+                    <i class="fa-solid fa-location-dot"></i> 123 RuralConnect Lane, Patna, Bihar, India
+                </div>
+                <div class="info-card">
+                    <i class="fa-solid fa-envelope"></i> support@ruralconnect.org
+                </div>
+                <div class="info-card">
+                    <i class="fa-solid fa-phone"></i> +91 1800 123 4567
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Settings Modal -->
+    <div class="settings-modal" id="settingsModal" hidden>
+        <div class="settings-overlay" id="settingsOverlay"></div>
+        <div class="settings-content">
+            <div class="settings-header">
+                <h3>Settings</h3>
+                <button class="settings-close" id="settingsClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div>
+                <label><strong>Language:</strong></label>
+                <div class="language-switcher-inside" style="margin-top: 0.5rem;">
+                    <button class="lang-btn active">English</button>
+                    <button class="lang-btn">हिन्दी</button>
+                    <button class="lang-btn">বাংলা</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Assistant Modal -->
+    <div class="ai-assistant" id="aiAssistant" hidden>
+        <div class="ai-container">
+            <div class="ai-header">
+                <h3><i class="fa-solid fa-robot"></i> AI Assistant</h3>
+                <button class="ai-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="ai-messages"></div>
+            <form class="ai-input">
+                <input type="text" placeholder="Ask me anything..." required>
+                <button class="ai-send" type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="container" style="margin-top: 3rem;">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-logo"><i class="fa-solid fa-heart-pulse"></i> RuralConnect</div>
+                <p>Empowering rural healthcare with technology and compassion.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#network">Network</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Newsletter</h4>
+                <form>
+                    <input type="email" placeholder="Your email" required>
+                    <button class="btn btn-primary" type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2024 RuralConnect. All rights reserved.</span>
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>   </div>
 
     <script src="js/main.js"></script>
+    <!-- Custom JS -->
+    <script>
+    // Hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger && hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
+    });
+
+    // Settings modal
+    const settingsBtn = document.getElementById('settingsBtn');
+    const settingsModal = document.getElementById('settingsModal');
+    const settingsClose = document.getElementById('settingsClose');
+    const settingsOverlay = document.getElementById('settingsOverlay');
+    settingsBtn && settingsBtn.addEventListener('click', () => settingsModal.hidden = false);
+    settingsClose && settingsClose.addEventListener('click', () => settingsModal.hidden = true);
+    settingsOverlay && settingsOverlay.addEventListener('click', () => settingsModal.hidden = true);
+
+    // Language switcher
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            // You can add language switching logic here
+        });
+    });
+
+    // AI Assistant modal
+    const aiBtn = document.getElementById('aiAssistantBtn');
+    const aiModal = document.getElementById('aiAssistant');
+    const aiClose = aiModal ? aiModal.querySelector('.ai-close') : null;
+    aiBtn && aiBtn.addEventListener('click', () => aiModal.hidden = false);
+    aiClose && aiClose.addEventListener('click', () => aiModal.hidden = true);
+
+    // AI Assistant send message (demo)
+    const aiForm = aiModal ? aiModal.querySelector('.ai-input') : null;
+    const aiMessages = aiModal ? aiModal.querySelector('.ai-messages') : null;
+    aiForm && aiForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const input = aiForm.querySelector('input');
+        if(input.value.trim()) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'ai-message';
+            msgDiv.innerHTML = '<img src="images/sentry-logo.svg" alt="Sentry Logo" class="sentry-logo"><div class="message-content"><p>' + input.value + '</p></div>';
+            aiMessages.appendChild(msgDiv);
+            aiMessages.scrollTop = aiMessages.scrollHeight;
+            input.value = '';
+        }
+    });
+
+    // Contact form (demo)
+    document.querySelectorAll('.contact-form form').forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for contacting us!');
+            form.reset();
+        });
+    });
+
+    // Newsletter form (demo)
+    document.querySelectorAll('.footer-newsletter form').forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Subscribed successfully!');
+            form.reset();
+        });
+    });
+    </script>
 </body>
-</html> 
+</html>

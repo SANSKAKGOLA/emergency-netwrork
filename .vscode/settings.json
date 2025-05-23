@@ -1,0 +1,7 @@
+{
+    "vscode_vibrancy.preferedDarkTheme": "Default Dark",
+    "vscode_vibrancy.imports": [
+        
+        "/path/to/file"
+    ]
+}
